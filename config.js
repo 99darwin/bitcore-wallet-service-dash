@@ -62,12 +62,12 @@ var config = {
     divi: {
       livenet: {
         provider: 'insight',
-        url: 'https://insight.diviproject.org',
+        url: 'http://174.138.14.81:3001',
         apiPrefix: '/insight-api-divi'
       },
       testnet: {
         provider: 'insight',
-        url: 'https://tinsight.diviproject.org',
+        url: 'http://128.199.37.191:3001',
         apiPrefx: '/insight-api-divi'
       }
     }
