@@ -12,6 +12,7 @@ var Networks = bitcore.Networks;
 var Locker = require('locker-server');
 var BlockchainMonitor = require('../lib/blockchainmonitor');
 var EmailService = require('../lib/emailservice');
+var PushNotificationService = require('../lib/pushnotificationsservice');
 var ExpressApp = require('../lib/expressapp');
 var child_process = require('child_process');
 var spawn = child_process.spawn;
@@ -162,6 +163,15 @@ Service.prototype.start = function(done) {
       if (config.emailOpts) {
         var emailService = new EmailService();
         emailService.start(config, next);
+      } else {
+        setImmediate(next);
+      }
+    },
+    function(next) {
+      // Push Notifications
+      if (config.pushNotificationsOpts) {
+        var pushNotificationService = new PushNotificationService();
+        pushNotificationService.start(config, next);
       } else {
         setImmediate(next);
       }
